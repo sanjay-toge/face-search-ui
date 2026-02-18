@@ -1,0 +1,32 @@
+<div class="container-result">
+    <h2>Search Results</h2>
+
+    <div *ngIf="groupedResults.length === 0" class="no-results">
+        <h3>We couldn't find you yet. 🔍</h3>
+        <p style="color: #94a3b8; margin-top: 10px;">We are scanning more videos every day.<br>Try again with a clearer
+            photo or check back soon.</p>
+        <a routerLink="/" class="retry-btn">Try Another Photo</a>
+    </div>
+
+    <div class="grid">
+        <div *ngFor="let group of groupedResults" class="card">
+            <div class="thumbnail-wrapper">
+                <img [src]="group.thumbnail" alt="Video Thumbnail" class="thumbnail">
+                <span class="video-duration">Video</span>
+            </div>
+
+            <div class="card-content">
+                <p class="found-text">Found {{group.occurrences.length}} time(s)</p>
+                <div class="timestamps">
+                    <a *ngFor="let occ of group.occurrences" [href]="occ.youtube_url" target="_blank"
+                        class="timestamp-btn">
+                        {{occ.time_human}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <a routerLink="/" class="back-link">← Back to Home</a>
+</div>
