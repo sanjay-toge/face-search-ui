@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   // baseUrl = 'http://localhost:5081/api/search'; // .NET API URL
 
-  baseUrl = 'http://faceme-d8hke7cmcthggwag.centralindia-01.azurewebsites.net/api/search'; // .NET API URL
+  baseUrl = 'https://faceme-d8hke7cmcthggwag.centralindia-01.azurewebsites.net/api/search'; // .NET API URL
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +18,6 @@ export class ApiService {
   }
 
   createCheckoutSession(email: string) {
-    return this.http.post('http://faceme-d8hke7cmcthggwag.centralindia-01.azurewebsites.net/api/billing/checkout', { email });
+    return this.http.post('https://faceme-d8hke7cmcthggwag.centralindia-01.azurewebsites.net/api/billing/checkout', { email });
   }
 }
